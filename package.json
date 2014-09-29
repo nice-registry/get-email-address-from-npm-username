@@ -1,0 +1,29 @@
+{
+  "name": "get-email-address-from-npm-username",
+  "version": "1.0.0",
+  "description": "Get the email address for a specific npm user",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zeke/get-email-address-from-npm-username"
+  },
+  "keywords": [
+    "gs"
+  ],
+  "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zeke/get-email-address-from-npm-username/issues"
+  },
+  "homepage": "https://github.com/zeke/get-email-address-from-npm-username",
+  "dependencies": {
+    "cheerio": "^0.17.0",
+    "superagent": "^0.19.0"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.4"
+  }
+}
