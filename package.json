@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Get the email address for a specific npm user",
   "main": "index.js",
+  "bin": "index.js",
   "scripts": {
     "test": "mocha"
   },
@@ -20,8 +21,8 @@
   },
   "homepage": "https://github.com/zeke/get-email-address-from-npm-username",
   "dependencies": {
-    "cheerio": "^0.17.0",
-    "superagent": "^0.19.0"
+    "http-https": "^1.0.0",
+    "parse-json-response": "^1.0.1"
   },
   "devDependencies": {
     "mocha": "^1.21.4"
