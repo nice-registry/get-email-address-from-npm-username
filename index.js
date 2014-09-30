@@ -1,17 +1,27 @@
-var superagent = require("superagent")
-var cheerio = require("cheerio")
+#!/usr/bin/env node
+var parse = require("parse-json-response")
+var hh = require("http-https")
+
+var root = "https://registry.npmjs.org/-/user/org.couchdb.user:"
 
 var getEmail = module.exports = function(username, callback) {
-  superagent.get("https://www.npmjs.org/~" + username).end(function(res) {
-    var $ = cheerio.load(res.text)
-    try {
-      var email = $("[data-email]").data().email
-      email = email.split('%').slice(1).map(function(x) {
-        return String.fromCharCode(parseInt(x, 16))
-      }).join('')
-      return callback(null, email)
-    } catch(e) {
-      return callback("Email not found")
+  var url = root + username
+  hh.get(url, parse(function (er, data) {
+    callback(er, data && data.email)
+  }))
+}
+
+if (require.main === module) {
+  if (!process.argv[2]) {
+    console.error("usage: get-email-address-from-npm-username <username>")
+    process.exit(1)
+  }
+
+  getEmail(process.argv[2], function(er, address) {
+    if (er) {
+      console.error(er.message)
+      process.exit(1)
     }
+    console.log(address)
   })
 }
