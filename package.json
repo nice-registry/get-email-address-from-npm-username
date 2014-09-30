@@ -1,6 +1,6 @@
 {
   "name": "get-email-address-from-npm-username",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Get the email address for a specific npm user",
   "main": "index.js",
   "bin": "index.js",
